@@ -2,7 +2,8 @@
     "name": "vs-point/symfony-mailjet-mailer",
     "type": "symfony-bridge",
     "description": "Symfony Mailjet Mailer Bridge",
-    "keywords": [],
+    "homepage": "https://www.vs-point.cz",
+    "keywords": ["php","symfony","symfony-component","email","mailer","mailjet"],
     "license": "MIT",
     "authors": [
         {
