@@ -23,7 +23,7 @@ VSPoint\Mailjet\Transport\MailjetTransportFactory:
 {JETMAILER_NAME}=mailjet://{public key}:{private key}@mailjet
 ```
 
-### Send normail email
+### Send base email
 ```php
 $dsn = 'mailjet://{public key}:{private key}@mailjet';
 
