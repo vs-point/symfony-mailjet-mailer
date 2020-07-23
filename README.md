@@ -20,12 +20,12 @@ VSPoint\Mailjet\Transport\MailjetTransportFactory:
 
 3.  Provide configuration in .env file
 ```
-{JETMAILER_NAME}=mailjet://{public key}:{private key}@mailjet
+{JETMAILER_NAME}=mailjet://{public key}:{private key}@api.mailjet.com
 ```
 
 ### Send base email
 ```php
-$dsn = 'mailjet://{public key}:{private key}@mailjet';
+$dsn = 'mailjet://{public key}:{private key}@api.mailjet.com';
 
 $transport = Transport::fromDsn($dsn);
 $mailer = new Mailer($transport);
@@ -44,7 +44,7 @@ $mailer->send($email);
 
 ### Send templated email
 ```php
-$dsn = 'mailjet://{public key}:{private key}@mailjet';
+$dsn = 'mailjet://{public key}:{private key}@api.mailjet.com';
 
 $transport = Transport::fromDsn($dsn);
 $mailer = new Mailer($transport);
