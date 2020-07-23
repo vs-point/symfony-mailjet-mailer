@@ -13,7 +13,7 @@ final class MailjetTransportFactory extends AbstractTransportFactory
         $user = $this->getUser($dsn);
         $password = $this->getPassword($dsn);
 
-        return new MailjetTransport($user, $password,  $this->dispatcher, $this->logger );
+        return new MailjetTransport($user, $password, $dsn->getHost(), $this->dispatcher, $this->logger );
     }
 
     protected function getSupportedSchemes(): array

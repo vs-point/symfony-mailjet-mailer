@@ -5,7 +5,6 @@ namespace VSPoint\Mailjet\Transport;
 use Mailjet\Client;
 use Mailjet\Resources;
 use Psr\Log\LoggerInterface;
-use Symfony\Component\Mailer\Exception\RuntimeException;
 use Symfony\Component\Mailer\Exception\TransportException;
 use Symfony\Component\Mailer\SentMessage;
 use Symfony\Component\Mailer\Transport\AbstractTransport;
@@ -24,11 +23,13 @@ class MailjetTransport extends AbstractTransport
     public function __construct(
         string $publicKey,
         string $privateKey,
+        string $url,
         EventDispatcherInterface $dispatcher,
         LoggerInterface $logger
     ){
         $this->mj = new Client($publicKey, $privateKey, true, [
             'version' => 'v3.1',
+            'url' => $url,
         ]);
 
         parent::__construct($dispatcher, $logger);
