@@ -24,7 +24,6 @@ class MailjetTemplateEmail extends Email
         parent::__construct();
         $this->templateId = $templateId;
         $this->variables = $variables;
-        $this->from('dummy@example.com');
         $this->isEmailSet = false;
     }
 
@@ -47,12 +46,4 @@ class MailjetTemplateEmail extends Email
     {
         $this->isEmailSet = $isEmailSet;
     }
-
-    public function from(...$addresses)
-    {
-        $this->isEmailSet = !empty($addresses);
-
-        return parent::from($addresses);
-    }
-
 }
