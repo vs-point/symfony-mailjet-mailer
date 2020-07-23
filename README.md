@@ -1,12 +1,18 @@
-Mailgun Mailer
+Mailjet Mailer
 ==============
 
-Provides Mailgun integration for Symfony Mailer.
+Provides Mailjet integration for Symfony Mailer.
 
-Resources
----------
+## Usage
+1. install
 
-  * [Contributing](https://symfony.com/doc/current/contributing/index.html)
-  * [Report issues](https://github.com/symfony/symfony/issues) and
-    [send Pull Requests](https://github.com/symfony/symfony/pulls)
-    in the [main Symfony repository](https://github.com/symfony/symfony)
+2. register in services.yaml
+    ```    
+    VSPoint\Mailjet\Transport\MailjetTransportFactory:
+       tags:
+           - mailer.transport_factory
+    ```
+3.  provide configuration in .env file
+    ```
+    {JETMAILER_NAME}=mailjet://{public key}:{private key}@baf 
+    ```
