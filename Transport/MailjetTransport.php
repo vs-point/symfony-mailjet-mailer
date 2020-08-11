@@ -61,7 +61,9 @@ class MailjetTransport extends AbstractTransport
 
             $messageArray['TemplateID'] = $email->getTemplateId();
             $messageArray['TemplateLanguage'] = true;
-            $messageArray['Variables'] = $email->getVariables();
+            if (!empty($email->getVariables())){
+                $messageArray['Variables'] = $email->getVariables();
+            }
         } else {
             $messageArray['From'] = $this->fromAddress($message->getEnvelope()->getSender());
             $messageArray['HTMLPart'] = $email->getHtmlBody();
@@ -102,7 +104,7 @@ class MailjetTransport extends AbstractTransport
 
         if (!$response->success()){
             throw new TransportException(
-                $response->getStatus() .' '.$response->getReasonPhrase()
+                $response->getStatus() .' '.$response->getReasonPhrase()."\n".json_encode($response->getData())
             );
         }
     }
