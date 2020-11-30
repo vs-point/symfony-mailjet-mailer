@@ -103,9 +103,14 @@ class MailjetTransport extends AbstractTransport
         $response = $this->mj->post(Resources::$Email, $body);
 
         if (!$response->success()){
-            throw new TransportException(
-                $response->getStatus() .' '.$response->getReasonPhrase()."\n".json_encode($response->getData())
+            $exception = new MailjetTransportException(
+                $response->getStatus() .' '.$response->getReasonPhrase()
             );
+
+            $exception->response = $response->getBody();
+            $exception->message = $messageArray;
+
+            throw $exception;
         }
     }
 
