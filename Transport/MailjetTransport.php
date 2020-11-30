@@ -108,7 +108,7 @@ class MailjetTransport extends AbstractTransport
             );
 
             $exception->response = $response->getBody();
-            $exception->message = $messageArray;
+            $exception->vars = $messageArray;
 
             throw $exception;
         }

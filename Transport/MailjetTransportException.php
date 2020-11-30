@@ -17,6 +17,6 @@ class MailjetTransportException extends TransportException
     /**
      * @var array|null
      */
-    public $message;
+    public $vars;
 
 }
